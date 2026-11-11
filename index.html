@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mid Questions MCQs · Quiz</title>
+<meta name="description" content="Interactive MCQ quiz for midterm revision — instant feedback, explanations and a full answer review.">
+<meta name="theme-color" content="#070b14">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b9bff'/%3E%3Cstop offset='1' stop-color='%235eead4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%230b1020'/%3E%3Crect x='6' y='6' width='52' height='52' rx='12' fill='url(%23g)'/%3E%3Cpath d='M20 33l8 8 16-17' fill='none' stroke='%230a1020' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/plex-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/plex-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Plex';font-weight:400;font-style:normal;font-display:swap;src:url(fonts/plex-Regular.woff2) format('woff2')}
+@font-face{font-family:'Plex';font-weight:500;font-style:normal;font-display:swap;src:url(fonts/plex-Medium.woff2) format('woff2')}
+@font-face{font-family:'Plex';font-weight:600;font-style:normal;font-display:swap;src:url(fonts/plex-SemiBold.woff2) format('woff2')}
+@font-face{font-family:'Plex';font-weight:700;font-style:normal;font-display:swap;src:url(fonts/plex-Bold.woff2) format('woff2')}
+
+:root{
+  --bg:#070b14; --ink:#e8ebf5; --mut:#8a93aa; --line:rgba(255,255,255,.09);
+  --acc:#8b9bff; --acc2:#5eead4; --ok:#34d399; --bad:#fb7185; --warn:#fbbf24;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Plex',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:16px;line-height:1.5;min-height:100vh;min-height:100dvh;-webkit-font-smoothing:antialiased}
+body.modal-open{overflow:hidden}
+.bg{position:fixed;inset:0;z-index:-1;background:
+  radial-gradient(900px 520px at 10% -8%,rgba(139,155,255,.22),transparent 62%),
+  radial-gradient(760px 520px at 105% 108%,rgba(94,234,212,.13),transparent 60%),
+  var(--bg)}
+.bg::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.055) 1px,transparent 1px);background-size:24px 24px;-webkit-mask-image:linear-gradient(180deg,#000,transparent 70%);mask-image:linear-gradient(180deg,#000,transparent 70%)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.ic{width:1.15em;height:1.15em;flex:none}
+.wrap{max-width:820px;margin:0 auto;padding:18px 16px 40px}
+.wrap.quiz{padding-bottom:calc(120px + env(safe-area-inset-bottom))}
+
+/* ---------- shared bits ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--ink);font-weight:600;padding:12px 18px;cursor:pointer;transition:transform .15s,background .2s,border-color .2s,box-shadow .2s;-webkit-tap-highlight-color:transparent;white-space:nowrap}
+.btn:hover{background:rgba(255,255,255,.09)}
+.btn:active{transform:scale(.98)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn.primary{background:linear-gradient(135deg,var(--acc),#6ee7d8);color:#0a1020;border-color:transparent;box-shadow:0 14px 34px -14px rgba(139,155,255,.75)}
+.btn.primary:hover{filter:brightness(1.07)}
+.btn.lg{padding:15px 22px;font-size:1.02rem;border-radius:16px}
+.btn.block{width:100%}
+.btn.ghost{background:transparent}
+.icon-btn{width:42px;height:42px;border-radius:13px;border:1px solid var(--line);background:rgba(255,255,255,.05);display:grid;place-items:center;cursor:pointer;flex:none;transition:background .2s}
+.icon-btn:hover{background:rgba(255,255,255,.1)}
+.icon-btn.sm{width:36px;height:36px;border-radius:11px}
+.link{background:none;border:0;color:var(--acc);font-weight:600;cursor:pointer;padding:4px 2px}
+.muted{color:var(--mut)}
+.tag{display:inline-flex;align-items:center;gap:7px;font-size:.74rem;letter-spacing:.03em;font-weight:600;padding:5px 11px;border-radius:99px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:#c3c9db}
+.tag i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.tag.mut{color:var(--mut);font-weight:500}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ---------- start ---------- */
+.hero{padding:clamp(18px,6vw,56px) 0 22px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--acc2);padding:6px 12px;border-radius:99px;border:1px solid rgba(94,234,212,.28);background:rgba(94,234,212,.07)}
+h1{font-size:clamp(2.3rem,8.5vw,4rem);line-height:1.04;letter-spacing:-.03em;margin:18px 0 12px;font-weight:700}
+.grad{background:linear-gradient(120deg,#d4dbff,#8b9bff 45%,#5eead4);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{margin:0;color:var(--mut);font-size:1.05rem;max-width:34em;text-align:left}
+.panel{background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));border:1px solid var(--line);border-radius:22px;padding:clamp(16px,3.5vw,24px);margin-top:20px}
+.panel-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.panel-h h2{font-size:1rem;margin:0;font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip-s{display:inline-flex;align-items:center;gap:9px;padding:10px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:#aab2c7;cursor:pointer;font-weight:500;transition:all .2s;-webkit-tap-highlight-color:transparent;text-align:left}
+.chip-s i{width:9px;height:9px;border-radius:50%;flex:none;opacity:.5}
+.chip-s em{font-style:normal;font-size:.78rem;padding:1px 8px;border-radius:99px;background:rgba(255,255,255,.07);color:var(--mut)}
+.chip-s.on{color:var(--ink);border-color:rgba(139,155,255,.55);background:rgba(139,155,255,.12)}
+.chip-s.on i{opacity:1}
+.chip-s.on em{background:rgba(139,155,255,.22);color:#dfe4ff}
+.switch{display:flex;align-items:center;gap:12px;margin-top:18px;cursor:pointer;color:#c3c9db;user-select:none}
+.switch input{position:absolute;opacity:0;pointer-events:none}
+.sw{width:44px;height:26px;border-radius:99px;background:rgba(255,255,255,.12);position:relative;transition:background .2s;flex:none}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .2s}
+.switch input:checked+.sw{background:var(--acc)}
+.switch input:checked+.sw::after{transform:translateX(18px)}
+.switch input:focus-visible+.sw{outline:2px solid var(--acc);outline-offset:2px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.cta .btn{flex:1 1 220px}
+.foot{color:var(--mut);font-size:.85rem;margin:18px 2px 0}
+
+/* ---------- sticky top ---------- */
+.top{position:sticky;top:0;z-index:20;background:rgba(7,11,20,.74);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top)}
+.top-in{max-width:820px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:12px}
+.prog{flex:1;min-width:0}
+.prog-t{display:flex;gap:6px;align-items:baseline;font-size:.85rem;color:var(--mut)}
+.prog-t b{color:var(--ink);font-size:1.08rem}
+.bar{height:6px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;margin-top:6px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--acc),var(--acc2));border-radius:inherit;transition:width .35s ease}
+.top-title{flex:1;font-weight:600;font-size:1.05rem}
+.filters{max-width:820px;margin:0 auto;padding:0 16px 12px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.fchip{flex:none;padding:7px 14px;border-radius:99px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:#b3bacd;font-weight:600;font-size:.85rem;cursor:pointer;display:inline-flex;gap:7px;align-items:center}
+.fchip em{font-style:normal;opacity:.7}
+.fchip.on{background:rgba(139,155,255,.18);border-color:rgba(139,155,255,.55);color:#fff}
+
+/* ---------- question card ---------- */
+.card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.028));border:1px solid var(--line);border-radius:26px;padding:clamp(18px,4.5vw,34px);box-shadow:0 30px 80px -40px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.06)}
+.card.enter{animation:rise .35s ease both}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.qtext{font-size:clamp(1.18rem,3.7vw,1.6rem);line-height:1.42;font-weight:600;margin:0 0 24px;letter-spacing:-.012em;overflow-wrap:anywhere}
+.opts{display:grid;gap:11px}
+.opt{appearance:none;-webkit-appearance:none;width:100%;text-align:left;display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:17px;border:1px solid var(--line);background:rgba(255,255,255,.035);color:var(--ink);font-weight:500;cursor:pointer;transition:transform .15s,border-color .2s,background .2s,box-shadow .2s,opacity .25s;-webkit-tap-highlight-color:transparent}
+.opts:not(.lock) .opt:hover{border-color:rgba(139,155,255,.55);background:rgba(139,155,255,.09)}
+.opts:not(.lock) .opt:active{transform:scale(.99)}
+.opts.lock .opt{cursor:default}
+.chip{flex:none;width:34px;height:34px;border-radius:11px;display:grid;place-items:center;font-weight:700;font-size:.9rem;background:rgba(255,255,255,.06);border:1px solid var(--line);color:#c9cfe2;transition:all .2s}
+.txt{flex:1;line-height:1.42;overflow-wrap:anywhere}
+.ico{flex:none;width:24px;height:24px;display:grid;place-items:center;opacity:0}
+.ico .ic{width:20px;height:20px}
+.opt.is-correct{border-color:rgba(52,211,153,.7);background:linear-gradient(90deg,rgba(52,211,153,.2),rgba(52,211,153,.06));box-shadow:0 0 0 1px rgba(52,211,153,.22),0 14px 34px -16px rgba(52,211,153,.55)}
+.opt.is-correct .chip{background:var(--ok);color:#04281c;border-color:transparent}
+.opt.is-correct .ico{opacity:1;color:var(--ok)}
+.opt.is-wrong{border-color:rgba(251,113,133,.7);background:linear-gradient(90deg,rgba(251,113,133,.2),rgba(251,113,133,.06));box-shadow:0 0 0 1px rgba(251,113,133,.22),0 14px 34px -16px rgba(251,113,133,.5)}
+.opt.is-wrong .chip{background:var(--bad);color:#3b0a14;border-color:transparent}
+.opt.is-wrong .ico{opacity:1;color:var(--bad)}
+.opt.is-dim{opacity:.42}
+.hint{margin:18px 2px 0;color:var(--mut);font-size:.88rem}
+
+.fb{margin-top:20px;border-radius:20px;padding:16px;border:1px solid;animation:rise .35s ease both;scroll-margin-bottom:130px}
+.fb.ok{background:rgba(52,211,153,.07);border-color:rgba(52,211,153,.3)}
+.fb.bad{background:rgba(251,113,133,.07);border-color:rgba(251,113,133,.32)}
+.fb-h{display:flex;gap:12px;align-items:center}
+.fb-ic{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;flex:none}
+.fb.ok .fb-ic{background:rgba(52,211,153,.2);color:var(--ok)}
+.fb.bad .fb-ic{background:rgba(251,113,133,.2);color:var(--bad)}
+.fb-h b{font-size:1.06rem;display:block;line-height:1.25}
+.fb-h small{color:var(--mut)}
+.fb-ans{margin-top:12px;padding:11px 14px;border-radius:13px;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.26);display:grid;gap:2px}
+.fb-ans span,.lbl{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+.fb-ans span{color:#86e9c1}
+.fb-ans b{font-weight:600;overflow-wrap:anywhere}
+.why{margin-top:12px;padding:14px 16px;border-radius:15px;background:rgba(5,8,16,.55);border:1px solid var(--line);text-align:right}
+.why-l{display:flex;align-items:center;gap:8px;color:var(--warn);font-weight:700;font-size:.84rem;margin-bottom:6px}
+.why p{margin:0;line-height:1.95;font-size:.98rem;color:#dfe3f0}
+.note{margin-top:10px;padding:11px 14px;border-radius:13px;background:rgba(251,191,36,.09);border:1px solid rgba(251,191,36,.3);color:#fde7a6;text-align:right;line-height:1.8;font-size:.92rem}
+
+/* ---------- bottom nav ---------- */
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:25;padding:26px 14px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(180deg,transparent,rgba(7,11,20,.94) 55%);pointer-events:none}
+.nav-in{pointer-events:auto;max-width:820px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:8px;border-radius:22px;background:rgba(16,22,38,.86);border:1px solid var(--line);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 24px 60px -24px #000}
+.nav .btn{flex:1;padding:13px 12px}
+.count{flex:0 0 auto!important;display:flex;flex-direction:column;align-items:center;gap:0;line-height:1.2;min-width:92px;padding:7px 12px!important}
+.count b{font-size:1rem}
+.count small{color:var(--mut);font-weight:500;font-size:.72rem}
+
+/* ---------- modal ---------- */
+.modal-back{position:fixed;inset:0;z-index:40;background:rgba(3,5,10,.66);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);animation:fade .2s ease both}
+.sheet{position:fixed;z-index:41;left:0;right:0;bottom:0;max-height:88dvh;overflow:auto;background:#0e1424;border:1px solid var(--line);border-radius:26px 26px 0 0;padding:20px 18px calc(20px + env(safe-area-inset-bottom));animation:slide .28s ease both}
+.sheet-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.sheet-h h3{margin:0;font-size:1.15rem}
+.sheet .row{display:flex;gap:10px;margin-top:18px}
+.sheet .row .btn{flex:1}
+.legend{display:flex;gap:16px;flex-wrap:wrap;color:var(--mut);font-size:.82rem;margin-bottom:14px}
+.legend .d{display:inline-block;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.25);margin-right:6px}
+.legend .d.ok{background:var(--ok)}.legend .d.bad{background:var(--bad)}
+.cells{display:grid;grid-template-columns:repeat(auto-fill,minmax(46px,1fr));gap:8px;margin-bottom:18px}
+.cell{height:46px;border-radius:13px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:#c3c9db;font-weight:600;cursor:pointer}
+.cell.ok{border-color:rgba(52,211,153,.6);background:rgba(52,211,153,.14);color:#9df2d0}
+.cell.bad{border-color:rgba(251,113,133,.6);background:rgba(251,113,133,.14);color:#ffb3c0}
+.cell.cur{outline:2px solid var(--acc);outline-offset:2px}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes slide{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
+@media (min-width:720px){
+  .sheet{left:50%;right:auto;bottom:auto;top:50%;width:min(580px,92vw);transform:translate(-50%,-50%);border-radius:26px;padding:24px;animation:pop .22s ease both}
+  @keyframes pop{from{transform:translate(-50%,-48%) scale(.97);opacity:0}to{transform:translate(-50%,-50%);opacity:1}}
+}
+
+/* ---------- result ---------- */
+.res{text-align:center;padding-top:clamp(10px,4vw,34px)}
+.ring-w{position:relative;width:min(220px,62vw);aspect-ratio:1;margin:8px auto 18px}
+.ring{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:9;stroke-linecap:round}
+.ring-bg{stroke:rgba(255,255,255,.08)}
+.ring-fg{stroke:url(#rg);transition:stroke-dashoffset .9s cubic-bezier(.2,.8,.2,1)}
+.ring-c{position:absolute;inset:0;display:grid;place-content:center}
+.ring-c b{font-size:clamp(2.2rem,9vw,3rem);line-height:1;letter-spacing:-.03em}
+.ring-c span{color:var(--mut);font-size:.9rem;margin-top:4px}
+.res h2{font-size:clamp(1.5rem,5vw,2.1rem);margin:0 0 6px;letter-spacing:-.02em}
+.res p{margin:0;color:var(--mut)}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:26px 0 8px}
+.stat{border-radius:18px;padding:14px 8px;border:1px solid var(--line);background:rgba(255,255,255,.04)}
+.stat b{display:block;font-size:1.7rem;line-height:1.1}
+.stat span{font-size:.78rem;color:var(--mut)}
+.stat.ok b{color:var(--ok)}.stat.bad b{color:var(--bad)}.stat.skip b{color:var(--warn)}
+.break{margin-top:18px;text-align:left}
+.break h3{font-size:.95rem;margin:0 0 12px;font-weight:600}
+.br{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;align-items:center;margin-bottom:12px;font-size:.9rem}
+.br span:last-child{color:var(--mut);font-size:.82rem}
+.br .bar{grid-column:1/-1;margin:0;height:7px}
+.br .bar i{background:var(--c)}
+.res .cta{margin-top:26px}
+
+/* ---------- review ---------- */
+.rv{border:1px solid var(--line);border-left:4px solid var(--c);border-radius:22px;padding:clamp(16px,4vw,24px);margin-bottom:14px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.025))}
+.rv.ok{--c:var(--ok);background:linear-gradient(180deg,rgba(52,211,153,.07),rgba(255,255,255,.02))}
+.rv.bad{--c:var(--bad);background:linear-gradient(180deg,rgba(251,113,133,.07),rgba(255,255,255,.02))}
+.rv.skip{--c:var(--warn);background:linear-gradient(180deg,rgba(251,191,36,.06),rgba(255,255,255,.02))}
+.rv-h{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.badge{font-size:.76rem;font-weight:700;padding:5px 12px;border-radius:99px;color:#071018;background:var(--c)}
+.st{margin-left:auto;width:34px;height:34px;border-radius:11px;display:grid;place-items:center;color:var(--c);background:rgba(255,255,255,.06)}
+.rv h3{font-size:clamp(1.02rem,3.2vw,1.2rem);line-height:1.45;margin:0 0 14px;font-weight:600;overflow-wrap:anywhere}
+.ab{border-radius:14px;padding:11px 14px;margin-bottom:10px;border:1px solid var(--line);background:rgba(5,8,16,.5)}
+.ab .lbl{display:block;color:var(--mut);margin-bottom:3px}
+.ab b{font-weight:600;overflow-wrap:anywhere}
+.ab.ok{border-color:rgba(52,211,153,.35);background:rgba(52,211,153,.08)}.ab.ok b{color:#9df2d0}
+.ab.bad{border-color:rgba(251,113,133,.38);background:rgba(251,113,133,.08)}.ab.bad b{color:#ffb3c0}
+.ab.skip b{color:var(--warn)}
+.empty{text-align:center;color:var(--mut);padding:50px 0}
+
+@media (min-width:720px){
+  .wrap{padding-top:28px}
+  .opt{padding:16px 18px}
+}
+@media (max-width:420px){
+  .chip{width:30px;height:30px;border-radius:10px}
+  .opt{padding:12px 12px;gap:11px}
+  .nav [data-action="prev"] .lbl-t{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+<div id="app"></div>
+<div id="modal-root"></div>
+<noscript><p style="padding:24px">This quiz needs JavaScript to run.</p></noscript>
+<script>
+const DATA = {"sections":[{"title":"Unit 1","short":"Unit 1","color":"#6d8bff"},{"title":"Unit 2","short":"Unit 2","color":"#a78bfa"},{"title":"Unit 3 — Distributed Transactions","short":"Unit 3 · Distributed","color":"#2dd4bf"},{"title":"Unit 3 — Transaction Management & Concurrency Control","short":"Unit 3 · Concurrency","color":"#f472b6"},{"title":"Unit 4 — Recovery & Backup","short":"Unit 4 · Recovery","color":"#fb923c"},{"title":"General & Miscellaneous Concepts","short":"General","color":"#94a3b8"}],"questions":[{"id":0,"s":0,"sub":"","orig":"1","text":"What is a distributed database?","opts":{"A":"Database spread across multiple locations","B":"Database with only one server","C":"Database without table","D":"Database with no security features"},"ans":"A","why":"تعريف قاعدة البيانات الموزعة هو نظام يتم فيه تخزين البيانات عبر عدة أجهزة أو مواقع (Sites) متصلة بشبكة، وتعمل معًا كقاعدة بيانات منطقية واحدة.","note":""},{"id":1,"s":0,"sub":"","orig":"2","text":"Which of the following is a benefit of distributed databases?","opts":{"A":"Lower network latency","B":"Limited scalability","C":"Centralized control","D":"Single point of failure"},"ans":"A","why":"من أهم مميزات قواعد البيانات الموزعة تقليل وقت الاستجابة عن طريق تخزين البيانات محلياً بالقرب من المستخدمين، مما يقلل من تأخيرات الشبكة.","note":""},{"id":2,"s":0,"sub":"","orig":"6","text":"In a distributed database, what is sharding?","opts":{"A":"Replicating data across nodes","B":"Dividing data into smaller, manageable parts","C":"Encrypting data for security","D":"Deleting data from the database"},"ans":"B","why":"الـ Sharding هو مصطلح يعادل عملية التجزئة (Fragmentation) التي تعني تقسيم جداول قاعدة البيانات إلى أجزاء أصغر وتوزيعها على مواقع مختلفة.","note":""},{"id":3,"s":0,"sub":"","orig":"12","text":"In a distributed database, what is the purpose of data replication?","opts":{"A":"Reduce storage space","B":"Improve data consistency and availability","C":"Increase network latency","D":"Eliminate the need for sharding"},"ans":"B","why":"الهدف الأساسي من النسخ المتماثل (Replication) هو زيادة الاعتمادية والإتاحة للبيانات، بحيث لو تعطل أحد الخوادم، يمكن الوصول للبيانات من خادم آخر.","note":""},{"id":4,"s":0,"sub":"","orig":"15","text":"How does horizontal partitioning differ from vertical partitioning in a distributed database?","opts":{"A":"Horizontal partitioning divides data based on rows, while vertical partitioning divides based on columns.","B":"Vertical partitioning divides data based on rows, while horizontal partitioning divides based on columns.","C":"Both horizontal and vertical partitioning are the same.","D":"Partitioning is not relevant in distributed databases."},"ans":"A","why":"التجزئة الأفقية (Horizontal) تقسم الجدول إلى مجموعات من الصفوف (Tuples)، بينما التجزئة الرأسية (Vertical) تقسم الجدول إلى أعمدة (Attributes).","note":""},{"id":5,"s":0,"sub":"","orig":"17","text":"Which of the following is a characteristic of a distributed database with high availability?","opts":{"A":"Single point of failure","B":"Redundancy and fault tolerance","C":"Limited scalability","D":"Slow network connections"},"ans":"B","why":"الأنظمة الموزعة تتغلب على مشكلة الفشل الفردي الموجودة في الأنظمة المركزية من خلال تكرار البيانات (Redundancy) مما يوفر تسامحاً مع الأخطاء (Fault tolerance).","note":""},{"id":6,"s":0,"sub":"","orig":"21","text":"A distributed database is which of the following?","opts":{"A":"A single logical database that is spread to multiple locations and is interconnected by a network","B":"A loose collection of file that is spread to multiple locations and is interconnected by a network","C":"A single logical database that is limited to one location.","D":"A loose collection of file that is limited to one location."},"ans":"A","why":"هذا هو التعريف القياسي؛ فهي بيانات موزعة فعلياً على عدة مواقع، ولكنها تظهر للمستخدم كأنها قاعدة بيانات منطقية واحدة (Single Logical Database).","note":""},{"id":7,"s":0,"sub":"","orig":"22","text":"Which of the following is a disadvantage of replication?","opts":{"A":"Reduced network traffic","B":"If the database fails at one site, a copy can be located at another site.","C":"Each site must have the same storage capacity.","D":"Each transaction may proceed without coordination across the network."},"ans":"C","why":"النسخ المتماثل الكامل (Full Replication) يتطلب مساحة تخزين مضاعفة للبيانات في جميع المواقع، مما يعني أن المواقع ستحتاج إلى سعات تخزينية متطابقة وكبيرة، وهو عيب مكلف.","note":""},{"id":8,"s":0,"sub":"","orig":"23","text":"A distributed database can use which of the following strategies?","opts":{"A":"Totally centralized at one location and accessed by many sites","B":"Partially or totally replicated across sites","C":"Partitioned into segments at different sites","D":"All of the above"},"ans":"D","why":"بيئة قواعد البيانات الموزعة مرنة؛ فيمكن أن تحتوي على أجزاء مركزية، أو منسوخة جزئياً وكلياً (Replication)، أو مجزأة (Fragmentation) حسب متطلبات النظام.","note":""},{"id":9,"s":0,"sub":"","orig":"26","text":"Depending on the situation each node in the Distributed Database system can act as,","opts":{"A":"A client","B":"A server","C":"Both A & B","D":"None of the above"},"ans":"C","why":"في معمارية الند للند (Peer-to-Peer / Full Distribution)، لا يوجد تمييز بين الخادم والعميل؛ حيث يعمل كل جهاز (Node) كـ Client و Server في نفس الوقت.","note":""},{"id":10,"s":0,"sub":"","orig":"30","text":"What is the primary advantage of using a distributed database over a centralized database?","opts":{"A":"Lower network latency","B":"Simplified management","C":"Single point of failure","D":"Increased data security"},"ans":"A","why":"إدارة قواعد البيانات الموزعة أكثر تعقيداً، ومشاكل الأمان فيها أكبر. الميزة الأهم هي تقليل تأخير الشبكة (Lower network latency) بفضل الاستعلام المحلي من أقرب موقع، وإلغاء نقطة الفشل الفردية.","note":""},{"id":11,"s":1,"sub":"","orig":"20","text":"In a distributed database, what is the role of a distributed query processor?","opts":{"A":"Encrypt data for security","B":"Process queries across multiple nodes","C":"Manage network connections","D":"Delete data from the database"},"ans":"B","why":"الـ Query Processor في قواعد البيانات الموزعة هو المسؤول عن أخذ الاستعلام، وتقسيمه، وإيجاد خطة التنفيذ المثلى لمعالجته عبر عدة خوادم أو مواقع (Nodes) مختلفة للحصول على النتيجة بأقل تكلفة ممكنة.","note":""},{"id":12,"s":2,"sub":"","orig":"3","text":"What is a key challenge in maintaining consistency in a distributed database?","opts":{"A":"Data fragmentation","B":"Data replication","C":"Data security","D":"Maintaining ACID properties"},"ans":"D","why":"الحفاظ على خصائص ACID (الذرية، التناسق، العزل، الاستمرارية) يعتبر التحدي الأكبر في البيئة الموزعة لضمان سلامة المعاملات عبر عدة خوادم.","note":""},{"id":13,"s":2,"sub":"","orig":"4","text":"Which consistency model ensures that all nodes in a distributed database see the same data simultaneously?","opts":{"A":"Eventual consistency","B":"Strong consistency","C":"Causal consistency","D":"Weak consistency"},"ans":"B","why":"التناسق القوي (Strong consistency) يضمن أن أي عملية قراءة ستعيد دائماً القيمة الأحدث (آخر ما تم كتابته) لجميع العقد في نفس الوقت.","note":""},{"id":14,"s":2,"sub":"","orig":"5","text":"What is the purpose of a distributed transaction in a distributed database?","opts":{"A":"Speed up data retrieval","B":"Ensure data consistency across multiple nodes","C":"Delete data from all nodes","D":"Limit data replication"},"ans":"B","why":"المعاملة الموزعة (Distributed Transaction) تهدف إلى تنفيذ مجموعة من العمليات عبر مواقع مختلفة مع ضمان بقاء البيانات متسقة (Consistent).","note":""},{"id":15,"s":2,"sub":"","orig":"7","text":"What is a distributed deadlock in a distributed database?","opts":{"A":"All nodes are down","B":"All nodes are overloaded","C":"Circular waiting for resources among nodes","D":"Data inconsistency across nodes"},"ans":"C","why":"الـ Deadlock (القفلة) يحدث عندما يكون هناك انتظار دائري (Circular Wait) لمجموعة من المعاملات، كل منها ينتظر مورداً تحتجزه معاملة أخرى في دورة مغلقة.","note":""},{"id":16,"s":2,"sub":"","orig":"11","text":"What is the role of a distributed database coordinator?","opts":{"A":"Manage network connections","B":"Ensure data integrity","C":"Coordinate transactions across multiple nodes","D":"Delete data from the database"},"ans":"C","why":"المنسق (Coordinator) هو المسؤول عن إدارة وتنظيم المعاملات الموزعة بين السيرفرات المشاركة (Participants) لضمان تنفيذ العملية بنجاح (كما في بروتوكول 2PC).","note":""},{"id":17,"s":2,"sub":"","orig":"13","text":"Which consistency model allows for temporary inconsistency between distributed nodes but guarantees eventual consistency?","opts":{"A":"Strong consistency","B":"Eventual consistency","C":"Causal consistency","D":"Weak consistency"},"ans":"B","why":"التناسق النهائي (Eventual consistency) يسمح باختلاف البيانات بين العقد لفترة مؤقتة، لكنه يضمن أنه مع مرور الوقت ستصل جميع العقد لنفس الحالة.","note":""},{"id":18,"s":2,"sub":"","orig":"16","text":"What is the purpose of a distributed lock manager in a distributed database?","opts":{"A":"Manage access control to the database","B":"Ensure data consistency during transactions","C":"Manage distributed deadlocks","D":"Delete data from the database"},"ans":"B","why":"مدير الأقفال الموزع بيتحكم في الوصول المتزامن للبيانات عن طريق منح أقفال (Locks) للمعاملات، مما يمنع التداخل (Interference) ويضمن الـ Consistency والـ Isolation.","note":""},{"id":19,"s":2,"sub":"","orig":"18","text":"What is the purpose of the Two-Phase Commit (2PC) protocol in a distributed database?","opts":{"A":"Speed up data retrieval","B":"Ensure data consistency during transactions","C":"Manage network connections","D":"Delete data from the database"},"ans":"B","why":"بروتوكول 2PC يضمن أن المعاملة إما أن تُعتمد (Commit) بالكامل في كل العقد أو تُلغى (Abort) بالكامل، مما يحافظ على التناسق وحالة (Atomicity).","note":""},{"id":20,"s":2,"sub":"","orig":"19","text":"Which data consistency model is often associated with the BASE acronym?","opts":{"A":"Strong consistency","B":"Eventual consistency","C":"Causal consistency","D":"Weak consistency"},"ans":"B","why":"نموذج BASE (Basically Available, Soft state, Eventual consistency) هو النقيض المرن لـ ACID، ويعتمد بشكل أساسي على الـ Eventual consistency وغالباً ما يُستخدم في أنظمة NoSQL.","note":""},{"id":21,"s":2,"sub":"","orig":"25","text":"A distributed transaction can be ___ if queries are issued at one or more nodes.","opts":{"A":"fully read-only","B":"partially read-only","C":"fully read-write","D":"partially read-write"},"ans":"B","why":"المعاملة الموزعة يمكن أن تكون (Partially read-only) إذا كانت الاستعلامات تقرأ البيانات فقط من عقد معينة دون تعديلها.","note":""},{"id":22,"s":2,"sub":"","orig":"27","text":"Which transaction contains statements that access more than one node?","opts":{"A":"A Remote Transaction","B":"A Distributed transaction","C":"Both A & B","D":"None of the above"},"ans":"B","why":"المعاملة الموزعة (Distributed Transaction) هي المعاملة التي تحتوي على عمليات (Statements) تصل إلى بيانات موجودة على أكثر من عقدة (Node) في نفس الوقت.","note":""},{"id":23,"s":2,"sub":"","orig":"28","text":"What is the mechanism which guarantees that all database servers participating in a distributed transaction either all commit or all roll back the statements in the transaction?","opts":{"A":"Commit","B":"Commit transaction","C":"Two-phase commit","D":"Three-phase commit"},"ans":"C","why":"بروتوكول الالتزام ثنائي المرحلة (2PC) هو الآلية القياسية التي تضمن تحقيق قاعدة (All-or-nothing) أو ما يسمى بـ Atomicity للمعاملات الموزعة.","note":""},{"id":24,"s":3,"sub":"Set 1","orig":"1","text":"If the transaction is rolled back, all the database changes made inside the transaction are ______","opts":{"A":"made permanent","B":"made temporary","C":"copied to the log","D":"undone"},"ans":"D","why":"خاصية الـ Atomicity (الذرية) تنص على أنه إذا فشل أو تم التراجع (Rollback) عن المعاملة، فيجب محو (Undo) جميع التغييرات لتعود قاعدة البيانات إلى حالتها الأصلية.","note":""},{"id":25,"s":3,"sub":"Set 1","orig":"2","text":"Which of the following is not a property of transactions?","opts":{"A":"Atomicity","B":"Concurrency","C":"Isolation","D":"Durability"},"ans":"B","why":"خصائص المعاملة الأربع تُجمع في اختصار ACID وهي (Atomicity, Consistency, Isolation, Durability). الـ Concurrency هي ميزة أو مشكلة في بيئة التشغيل وليست خاصية من خصائص المعاملة نفسها.","note":""},{"id":26,"s":3,"sub":"Set 1","orig":"4","text":"A transaction that completes its execution successfully is said to be ______","opts":{"A":"committed","B":"rolled back","C":"partially committed","D":"Aborted"},"ans":"A","why":"عندما تنهي المعاملة جميع عملياتها بنجاح وتحفظ تغييراتها بشكل دائم في قاعدة البيانات، تُسمى \"Committed\".","note":""},{"id":27,"s":3,"sub":"Set 1","orig":"5","text":"______ means that a transaction must execute exactly once completely or not at all.","opts":{"A":"durability","B":"consistency","C":"atomicity","D":"isolation"},"ans":"C","why":"الـ Atomicity هي قاعدة الـ (All-or-Nothing)، أي أن تنفذ جميع عمليات المعاملة بالكامل أو لا يُنفذ أي منها.","note":""},{"id":28,"s":3,"sub":"Set 1","orig":"6","text":"Assume transaction A holds a shared lock R. If transaction B also requests for a shared lock on R ______","opts":{"A":"It will result in a deadlock situation","B":"It will immediately be rejected","C":"It will immediately be granted","D":"It will be granted as soon as it is released by A"},"ans":"C","why":"أقفال القراءة (Shared Locks) متوافقة مع بعضها البعض (Compatible). لذلك، يمكن لأكثر من معاملة الحصول على قفل قراءة لنفس المورد في نفس الوقت.","note":""},{"id":29,"s":3,"sub":"Set 1","orig":"7","text":"______ means that when it ends, a transaction must leave the database in a consistent state.","opts":{"A":"Data isolation","B":"Data duration","C":"Data consistency","D":"Data non-reputability"},"ans":"C","why":"الـ Consistency تضمن أن أي معاملة تأخذ قاعدة البيانات من حالة متسقة وصحيحة إلى حالة متسقة أخرى عند انتهائها.","note":""},{"id":30,"s":3,"sub":"Set 1","orig":"9","text":"Isolation means ______","opts":{"A":"transaction must not interfere with each other","B":"transaction must interfere with each other","C":"transaction must be in consistent state","D":"transaction must be executed immediately"},"ans":"A","why":"العزل (Isolation) يضمن أن المعاملات المتزامنة لا تتداخل مع بعضها البعض، وكل معاملة تعمل وكأنها المعاملة الوحيدة في النظام.","note":""},{"id":31,"s":3,"sub":"Set 1","orig":"10","text":"Which of the following ensures the atomicity of the transaction?","opts":{"A":"Transaction management component of DBMS","B":"Application Programmer","C":"Concurrency control component of DBMS","D":"Recovery management component of DBMS"},"ans":"A","why":"إدارة المعاملات (Transaction Manager) في الـ DBMS هي المسؤولة عن بدء وإنهاء المعاملة، وتضمن أن القاعدة الذرية (Atomicity) يتم احترامها بالتعاون مع مدير الاسترداد.","note":""},{"id":32,"s":3,"sub":"Set 1","orig":"11","text":"______ means that a transaction must make its changes permanent to the database ends.","opts":{"A":"isolation","B":"locking","C":"durability","D":"consistency"},"ans":"C","why":"الاستمرارية (Durability) تضمن أن التغييرات التي أحدثتها المعاملة بعد نجاحها (Commit) تصبح دائمة ولا تُفقد حتى في حالة فشل النظام.","note":""},{"id":33,"s":3,"sub":"Set 1","orig":"15","text":"______ protocol is used to perform multiple transactions that execute on different database.","opts":{"A":"commit","B":"two phase lock","C":"two phase commit","D":"locking"},"ans":"C","why":"بروتوكول الالتزام ثنائي المرحلة (2PC) يُستخدم لتنسيق وضمان الـ Atomicity لمعاملة واحدة متوزعة تتصل وتعدل في قواعد بيانات مختلفة (عبر عدة مواقع).","note":""},{"id":34,"s":3,"sub":"Set 1","orig":"16","text":"A transaction can do read and write operation on a data item when it acquires ______","opts":{"A":"read mode","B":"exclusive mode","C":"shared mode","D":"write mode"},"ans":"B","why":"القفل الحصري (Exclusive Lock) أو قفل الكتابة يمنح المعاملة حق القراءة والكتابة معاً، ويمنع أي معاملة أخرى من الوصول إلى المورد حتى يتم تحرير القفل.","note":""},{"id":35,"s":3,"sub":"Set 1","orig":"17","text":"In ______ one transaction overwrites the changes of another transaction.","opts":{"A":"uncommitted read problem","B":"lost update problem","C":"update lost problem","D":"dirty read problem"},"ans":"B","why":"مشكلة فقدان التحديث (Lost Update) تحدث عندما تقرأ معاملتان نفس البيانات وتعدلانها في نفس الوقت، وتقوم واحدة بالكتابة فوق تعديل الأخرى، فتضيع التغييرات الأولى.","note":""},{"id":36,"s":3,"sub":"Set 1","orig":"18","text":"Isolation of the transactions is ensured by ______","opts":{"A":"Transaction management","B":"Application programmer","C":"Concurrency control","D":"Recovery management"},"ans":"C","why":"التحكم في التزامن (Concurrency Control) هو النظام المسؤول عن إدارة الأقفال والترتيب لمنع التداخل بين المعاملات وضمان العزل (Isolation).","note":""},{"id":37,"s":3,"sub":"Set 1","orig":"19","text":"In dirty read problem ______","opts":{"A":"one transaction reads an uncommitted value of another transaction","B":"one transaction reads the committed value for another transaction","C":"one transaction reads another transaction","D":"one transaction commits another transaction."},"ans":"A","why":"القراءة القذرة (Dirty Read) تحدث عندما تقرأ المعاملة الأولى بيانات عدلتها معاملة ثانية لم تنتهِ (Uncommitted)، والتي قد يتم التراجع عنها (Abort) لاحقاً، فتصبح البيانات المقروءة غير صحيحة.","note":""},{"id":38,"s":3,"sub":"Set 1","orig":"20","text":"A transaction can do only read operation and not write operation on a data item when it acquires ______ lock.","opts":{"A":"read mode","B":"exclusive mode","C":"shared mode","D":"write mode"},"ans":"C","why":"قفل القراءة (Shared Lock) يسمح للمعاملة بقراءة المورد فقط ويمنع التعديل عليه لضمان عدم تغيره أثناء القراءة.","note":""},{"id":39,"s":3,"sub":"Set 2","orig":"1","text":"In the ______ one transaction inserts a row in the table while the other transaction is half way through its browsing of table.","opts":{"A":"transaction read problem","B":"one way read problem","C":"serial read problem","D":"phantom read problem"},"ans":"D","why":"مشكلة القراءة الشبحية (Phantom Read) تحدث عندما تقوم معاملة بعمل استعلام يرجع مجموعة صفوف، وفي نفس الوقت تقوم معاملة أخرى بإدخال صف جديد يطابق شروط الاستعلام، فلو أُعيد الاستعلام ستظهر نتائج إضافية لم تكن موجودة.","note":""},{"id":40,"s":3,"sub":"Set 2","orig":"3","text":"______ helps solve concurrency problem.","opts":{"A":"locking","B":"transaction monitor","C":"transaction serializability","D":"two phase commit"},"ans":"A","why":"نظام الأقفال (Locking) هو التقنية التشاؤمية الأساسية المُستخدمة لمنع التداخل وحل مشاكل التزامن (Concurrency) في قواعد البيانات.","note":""},{"id":41,"s":3,"sub":"Set 2","orig":"9","text":"______ is a specific concurrency problem wherein two transactions depend on each other for something.","opts":{"A":"phantom read problem","B":"transaction read problem","C":"deadlock","D":"locking"},"ans":"C","why":"القفلة الميتة (Deadlock) تحدث عندما تنتظر المعاملة (أ) مورداً مع المعاملة (ب)، بينما المعاملة (ب) تنتظر مورداً مع المعاملة (أ)، فيبقيان في حالة انتظار دائري بلا نهاية.","note":""},{"id":42,"s":3,"sub":"Set 2","orig":"12","text":"The situation in which a transaction holds a data item and waits for the release of data item held by some other transaction, which in turn waits for another transaction, is called ______","opts":{"A":"serialiable schedule","B":"process waiting","C":"concurrency","D":"deadlock"},"ans":"D","why":"هذا هو التعريف التقني المفصل للـ Deadlock (الانتظار الدائري المتشابك).","note":""},{"id":43,"s":3,"sub":"Set 2","orig":"13","text":"______ protocol guarantees that a set of transactions becomes serialisable.","opts":{"A":"two phase locking","B":"two phase commit","C":"transaction locking","D":"checkpoints"},"ans":"A","why":"بروتوكول الالتزام ثنائي المرحلة للأقفال (2PL)، بمرحلتيه Growing و Shrinking، يُعتبر القاعدة الأساسية التي تضمن الـ Serializability في تنفيذ المعاملات.","note":""},{"id":44,"s":3,"sub":"Set 2","orig":"16","text":"In two-phase locking protocol, a transaction obtains locks in ______ phase.","opts":{"A":"shrinking phase","B":"growing phase","C":"running phase","D":"initial phase"},"ans":"B","why":"في الـ Two-Phase Locking، المعاملة تطلب وتحصل على جميع الأقفال التي تحتاجها في المرحلة الأولى والتي تُسمى مرحلة النمو (Growing Phase).","note":""},{"id":45,"s":3,"sub":"Set 2","orig":"19","text":"In ______ we have many mini transactions within a main transaction.","opts":{"A":"transaction control","B":"chained transaction","C":"nested transaction","D":"calling transaction"},"ans":"B","why":"المعاملة المتسلسلة (Chained) أو المتداخلة (Nested) هي عبارة عن معاملة رئيسية تتكون من وحدات أو عمليات معاملات فرعية أصغر.","note":"ملاحظة: علمياً C و B كلاهما يحملان المعنى، ولكن حسب نموذج الإجابة في مصدر الامتحانات الإجابة هي B."},{"id":46,"s":3,"sub":"Set 2","orig":"20","text":"In a two-phase locking protocol, a transaction release locks in ______ phase.","opts":{"A":"shrinking phase","B":"growing phase","C":"running phase","D":"initial phase"},"ans":"A","why":"بعد الوصول لنقطة القفل القصوى (Lock Point)، تبدأ المعاملة في التخلي عن الأقفال في المرحلة الثانية والتي تُسمى الانكماش (Shrinking Phase)، ولا يحق لها طلب أقفال جديدة فيها.","note":""},{"id":47,"s":3,"sub":"Set 3","orig":"1","text":"A mechanism which ensures that simultaneous execution of more than one transaction does not lead to any database inconsistencies is called ______ mechanism.","opts":{"A":"transaction control","B":"transaction management","C":"concurrency parallelism","D":"concurrency control"},"ans":"D","why":"التحكم في التزامن هو النظام المصمم لتنظيم وصول المعاملات المتعددة للبيانات في نفس الوقت دون كسر قواعد الـ Consistency.","note":""},{"id":48,"s":3,"sub":"Set 3","orig":"2","text":"The transaction wants only to read the data item of mode is called as ______","opts":{"A":"Exclusive Mode","B":"Shared Mode","C":"Inclusive Mode","D":"Unshared Mode"},"ans":"B","why":"قفل القراءة يُعرف بـ (Shared Lock Mode) لأنه يسمح لعدة معاملات بالقراءة معاً في نفس الوقت.","note":""},{"id":49,"s":3,"sub":"Set 3","orig":"7","text":"A ______ is a set of rules that state when a transaction may lock or unlock each of the data items in the database.","opts":{"A":"concurrency control","B":"transaction control","C":"validation control","D":"locking protocol"},"ans":"D","why":"بروتوكول القفل (مثل 2PL) هو مجموعة القواعد التي تحكم كيفية وتوقيت طلب وإخلاء الأقفال.","note":""},{"id":50,"s":3,"sub":"Set 3","orig":"9","text":"Which protocol permits release of exclusive locks only at the end of transaction?","opts":{"A":"Graph based protocol","B":"Strict two phase locking protocol","C":"Two phase locking protocol","D":"Rigorous Two phase locking protocol"},"ans":"B","why":"الـ Strict 2PL يختلف عن الـ 2PL العادي في أنه لا يُفلت أي أقفال كتابة (Exclusive Locks) إلا بعد إنهاء المعاملة (Commit أو Abort) لمنع مشكلة Cascading Abort.","note":""},{"id":51,"s":3,"sub":"Set 3","orig":"11","text":"Which protocol allows a transaction to lock a new data item only if that transaction has not yet unlocked data item?","opts":{"A":"Graph based protocol.","B":"Strict two phase locking protocol","C":"Two phase locking protocol","D":"Timestamp ordering scheme"},"ans":"C","why":"هذه هي قاعدة الـ 2PL: لا يمكنك طلب قفل جديد إذا قمت بالتخلي عن أي قفل مسبقاً (الانتقال لمرحلة الـ Shrinking يمنعك من النمو).","note":""},{"id":52,"s":3,"sub":"Set 3","orig":"13","text":"______ ensures that once transaction completes successfully, the results of the operations become permanent.","opts":{"A":"serializability","B":"synchronizability","C":"atomicity","D":"durability"},"ans":"D","why":"استمرارية (Durability) البيانات تعني أن الـ Commit هو حكم نهائي لا يمكن أن يضيع.","note":""},{"id":53,"s":3,"sub":"Set 3","orig":"20","text":"In ______, one or more users/programs attempt to access the same data at the same time.","opts":{"A":"concurrency","B":"transaction control","C":"locking","D":"two phase locking"},"ans":"A","why":"مفهوم التزامن (Concurrency) هو ببساطة وصول عدة أطراف لنفس الموارد في الوقت ذاته.","note":""},{"id":54,"s":3,"sub":"Set 4","orig":"4","text":"A sophisticated locking mechanism known as 2-phase locking which includes Growing phase and ______","opts":{"A":"Shrinking Phase","B":"Release phase","C":"Commit phase","D":"Acquire Phase"},"ans":"A","why":"بروتوكول الـ 2PL يتكون حصرياً من مرحلتين: Growing Phase لاكتساب الأقفال، و Shrinking Phase للتخلي عنها.","note":""},{"id":55,"s":3,"sub":"Set 4","orig":"5","text":"A Transaction ends ______","opts":{"A":"only when it is Committed","B":"only when it is Rolled back","C":"when it is Committed or Rolled back","D":"only when it is initialized"},"ans":"C","why":"نهاية المعاملة تحدث بإحدى حالتين: نجاح وتأكيد التغييرات (Commit) أو فشل وتراجع (Rollback).","note":""},{"id":56,"s":3,"sub":"Set 4","orig":"11","text":"______ property will check whether all the operation of a transaction completed or none.","opts":{"A":"Atomicity","B":"Consistency","C":"Isolation","D":"Durability"},"ans":"A","why":"كما ذُكر، الـ Atomicity هي قاعدة الـ (All-or-Nothing).","note":""},{"id":57,"s":3,"sub":"Set 4","orig":"12","text":"The total ordering of operations across groups ensures ______ of transactions.","opts":{"A":"serializability","B":"synchronizability","C":"atomicity","D":"durability"},"ans":"A","why":"الترتيب الكلي للعمليات يضمن أن ناتج التزامن هو نفسه كما لو تم تنفيذ العمليات واحدة تلو الأخرى بشكل متسلسل (Serializable Schedule).","note":""},{"id":58,"s":3,"sub":"Set 4","orig":"14","text":"The ORDER concurrency control technique is based on the ______ property.","opts":{"A":"ordering mechanism","B":"inherent ordering","C":"total ordering","D":"partial ordering"},"ans":"C","why":"تقنيات التحكم التي تعتمد على الطلب والطوابير (مثل Timestamp Ordering) تستخدم نظام الترتيب الكلي (Total Ordering) لتنظيم أولوية الدخول للموارد.","note":""},{"id":59,"s":4,"sub":"","orig":"1","text":"Which of the following is not a recovery technique?","opts":{"A":"Deferred update","B":"Immediate update","C":"Two-phase commit","D":"Recovery management"},"ans":"C","why":"بروتوكول الـ Two-phase commit يُستخدم لإدارة المعاملات الموزعة والتزامن، وليس تقنية لاسترداد البيانات (Recovery) مثل الـ Deferred أو Immediate update.","note":""},{"id":60,"s":4,"sub":"","orig":"2","text":"Checkpoints are a part of ______","opts":{"A":"Recovery measures","B":"Security measures","C":"Concurrency measures","D":"Authorization measures"},"ans":"A","why":"نقاط الحفظ (Checkpoints) تُستخدم لتقليل وقت الريكفري من خلال تحديد نقطة زمنية تكون فيها جميع البيانات مستقرة ومحفوظة على القرص.","note":""},{"id":61,"s":4,"sub":"","orig":"3","text":"______ deals with soft errors, such as power failures.","opts":{"A":"system recovery","B":"media recovery","C":"database recovery","D":"failure recovery"},"ans":"D","why":"استرداد الفشل يتعامل مع الأخطاء المؤقتة (Soft errors) مثل انقطاع التيار الكهربائي الذي يؤثر على الذاكرة المتطايرة.","note":""},{"id":62,"s":4,"sub":"","orig":"4","text":"______ is an essential part of any backup system.","opts":{"A":"Filter","B":"Recovery","C":"Security","D":"Scalability"},"ans":"C","why":"الأمان ضروري جداً لضمان عدم وصول أشخاص غير مصرح لهم إلى النسخ الاحتياطية الحساسة للبيانات.","note":""},{"id":63,"s":4,"sub":"","orig":"5","text":"Media recovery deals with ______","opts":{"A":"disk errors","B":"hard errors","C":"system errors","D":"power failures"},"ans":"A","why":"استرداد الوسائط (Media Recovery) هو المعني بالتعامل مع الأعطال المادية لأجهزة التخزين مثل تلف الأقراص الصلبة (Disk errors).","note":""},{"id":64,"s":4,"sub":"","orig":"6","text":"For a backup/restore system, ______ is a prerequisite for service in an enterprise.","opts":{"A":"Filter","B":"Recovery","C":"Security","D":"Scalability"},"ans":"D","why":"القابلية للتوسع (Scalability) شرط أساسي للشركات لأن حجم البيانات ينمو باستمرار، ويجب أن يكون نظام النسخ قادراً على استيعاب هذا النمو.","note":""},{"id":65,"s":4,"sub":"","orig":"7","text":"Failure recovery and media recovery fall under ______","opts":{"A":"transaction recovery","B":"database recovery","C":"system recovery","D":"value recovery"},"ans":"C","why":"كلاهما يعتبران أجزاء من المظلة الأكبر وهي \"استرداد النظام\" (System Recovery) ككل من الكوارث.","note":""},{"id":66,"s":4,"sub":"","orig":"8","text":"The ______ consists of the various applications and database that play a role in a backup and recovery strategy.","opts":{"A":"Recovery Manager Environment","B":"Recovery Manager Suit","C":"Recovery Manager File","D":"Recovery Manager Database"},"ans":"A","why":"بيئة مدير الاسترداد تشمل جميع الأدوات، التطبيقات، وقواعد البيانات المشاركة في تنفيذ خطة النسخ الاحتياطي.","note":""},{"id":67,"s":4,"sub":"","orig":"9","text":"In which the database can be restored up to the last consistent state after the system failure?","opts":{"A":"Backup","B":"Recovery","C":"Both","D":"None"},"ans":"B","why":"عملية الاسترداد (Recovery) هي التي تقوم بإرجاع قاعدة البيانات فعلياً إلى آخر حالة صحيحة ومستقرة (Consistent State) قبل الفشل.","note":""},{"id":68,"s":4,"sub":"","orig":"10","text":"A ______ is a block of Recovery Manager (RMAN) job commands that is stored in the recovery catalog.","opts":{"A":"recovery procedure","B":"recovery block","C":"stored block","D":"stored script"},"ans":"D","why":"الـ Stored script في أداة RMAN هو ملف أو كود برمجي محفوظ يحتوي على أوامر جاهزة للنسخ والاسترداد لتنفيذها برمجياً.","note":""},{"id":69,"s":4,"sub":"","orig":"11","text":"In log based recovery, the log is sequence of ______","opts":{"A":"filter","B":"records","C":"blocks","D":"numbers"},"ans":"B","why":"سجل النظام (Log) عبارة عن سلسلة متتابعة من السجلات (Records) التي تسجل تفاصيل كل معاملة وتعديل.","note":""},{"id":70,"s":4,"sub":"","orig":"12","text":"The enrolling of a database in a recovery catalog is called ______","opts":{"A":"setup","B":"registration","C":"startup","D":"enrollment"},"ans":"B","why":"عملية إضافة قاعدة بيانات إلى فهرس الاسترداد (Recovery Catalog) لتتبع نسخها الاحتياطية تُعرف بـ \"التسجيل\" (Registration).","note":""},{"id":71,"s":4,"sub":"","orig":"13","text":"______ is an alternative of log based recovery.","opts":{"A":"Disk recovery","B":"Shadow paging","C":"Dish shadowing","D":"Crash recovery"},"ans":"B","why":"تقنية Shadow paging هي تقنية بديلة لا تعتمد على الـ Logs، بل تعتمد على الاحتفاظ بنسخة قديمة (ظل) من الصفحة أثناء تعديل صفحة جديدة.","note":""},{"id":72,"s":4,"sub":"","orig":"14","text":"Most backup and recovery commands in ______ are executed by server sessions.","opts":{"A":"Backup Manager","B":"Recovery Manager","C":"Backup and Recovery Manager","D":"Database Manager"},"ans":"B","why":"أداة \"مدير الاسترداد\" هي المسؤولة عن فتح جلسات مع الخوادم (Server Sessions) لتنفيذ مهام النسخ والاسترجاع.","note":""},{"id":73,"s":4,"sub":"","orig":"15","text":"______ systems typically allows to replace failed disks without stopping access to the system.","opts":{"A":"RAM","B":"RMAN","C":"RAD","D":"RAID"},"ans":"D","why":"مصفوفة الأقراص (RAID) توفر تكراراً للبيانات يسمح باستبدال الأقراص التالفة (Hot-swapping) والعمل مستمر دون إيقاف النظام.","note":""},{"id":74,"s":4,"sub":"","orig":"16","text":"An ______ is an exact copy of a single data file, archived redo log file, or control file.","opts":{"A":"image copy","B":"data file copy","C":"copy log","D":"control copy"},"ans":"A","why":"الـ Image copy هو نسخ حرفي (بكل بت) لملف البيانات كما هو على القرص.","note":""},{"id":75,"s":4,"sub":"","orig":"17","text":"______ known as memory-style error correcting-code (ECC) organization, employs parity bits.","opts":{"A":"RAID level 1","B":"RAID level 2","C":"RAID level 3","D":"RAID level 4"},"ans":"B","why":"الـ RAID 2 يستخدم بتات التماثل (Parity bits) لتصحيح الأخطاء باستخدام أكواد ECC بنفس الطريقة التي تعمل بها ذاكرة الوصول العشوائي.","note":""},{"id":76,"s":4,"sub":"","orig":"18","text":"The remote backup site is sometimes called the ______ site.","opts":{"A":"primary","B":"secondary","C":"ternary","D":"None of the above"},"ans":"B","why":"الموقع الرئيسي هو (Primary)، والموقع البعيد الذي يحفظ النسخ الاحتياطية للكوارث يُسمى الموقع الثانوي (Secondary site).","note":""},{"id":77,"s":4,"sub":"","orig":"19","text":"EXP command is used ______","opts":{"A":"to take Backup of the Oracle Database","B":"to import data from the exported dump file","C":"to create Rollback segments","D":"to create Schedule"},"ans":"A","why":"أمر EXP (Export) هو أداة كلاسيكية في Oracle تُستخدم لاستخراج البيانات وأخذ نسخة احتياطية منها.","note":""},{"id":78,"s":4,"sub":"","orig":"20","text":"The simplest approach to introducing redundancy is to duplicate every disk is called ______","opts":{"A":"mirroring","B":"imaging","C":"copying","D":"All of the above"},"ans":"A","why":"الـ Mirroring (المعروف بـ RAID 1) هو أسهل طريقة لعمل تكرار عن طريق نسخ كل قرص بالكامل لقرص آخر ليكون مرآة له.","note":""},{"id":79,"s":5,"sub":"","orig":"8","text":"Which protocol is commonly used for communication between nodes in a distributed database?","opts":{"A":"HTTP","B":"SMTP","C":"TCP/IP","D":"UDP"},"ans":"C","why":"بروتوكول TCP/IP هو المعيار الأساسي والموثوق لنقل البيانات والاتصال بين العقد (Nodes) في الشبكات وقواعد البيانات الموزعة.","note":""},{"id":80,"s":5,"sub":"","orig":"9","text":"What is the CAP theorem in the context of distributed databases?","opts":{"A":"A theorem in mathematics","B":"A theorem in computer graphics","C":"A theorem in distributed systems stating that it is impossible to achieve all three of consistency, availability, and partition tolerance simultaneously.","D":"A theorem in cryptography"},"ans":"C","why":"نظرية CAP تنص على أن أي نظام قواعد بيانات موزع لا يمكنه ضمان تحقيق الثلاث خصائص (Consistency, Availability, Partition Tolerance) في نفس الوقت، ويجب التضحية بواحدة منها.","note":""},{"id":81,"s":5,"sub":"","orig":"10","text":"Which is an example of a NoSQL distributed database?","opts":{"A":"MySQL","B":"Oracle Database","C":"MongoDB","D":"SQLite"},"ans":"C","why":"MongoDB هي قاعدة بيانات NoSQL مصممة للعمل بشكل موزع (Distributed) وتعتمد على الوثائق (Document-oriented)، بينما الباقي قواعد بيانات علائقية (SQL).","note":""},{"id":82,"s":5,"sub":"","orig":"14","text":"What is a distributed cache in the context of distributed databases?","opts":{"A":"Storing data in a centralized location","B":"Storing frequently accessed data in memory across multiple nodes","C":"Deleting data from the database","D":"Encrypting data for security"},"ans":"B","why":"الكاش الموزع (Distributed Cache) هو تخزين البيانات التي تُطلب بكثرة في الذاكرة العشوائية (RAM) عبر عدة أجهزة لتسريع عملية الاسترجاع وتقليل الضغط على قاعدة البيانات.","note":""},{"id":83,"s":5,"sub":"","orig":"24","text":"Which of the following is not one of the stages in the evolution of distributed DBMS?","opts":{"A":"Unit of work","B":"Remote unit of work","C":"Distributed unit of Work","D":"Distributed request"},"ans":"A","why":"مراحل تطور قواعد البيانات الموزعة (حسب تصنيف IBM للوصول الموزع) تبدأ من Remote Request ثم Remote Unit of Work ثم Distributed Unit of Work وأخيراً Distributed Request. أما الـ Unit of work فهو يعبر عن المعاملة المحلية العادية ولا يعتبر مرحلة موزعة.","note":""},{"id":84,"s":5,"sub":"","orig":"29","text":"Stored procedures have which of the following advantages?","opts":{"A":"It takes a longer time to write them as compared to writing Visual Basic.","B":"Network traffic increases","C":"Data integrity improves as multiple applications access the same stored procedure.","D":"Result in thicker client and thinner database server."},"ans":"C","why":"الإجراءات المخزنة (Stored Procedures) تحسن سلامة البيانات لأن منطق العمل (Business Logic) يكون مركزياً في قاعدة البيانات، مما يوحد طريقة التعامل مع البيانات لجميع التطبيقات، كما أنها تقلل من استهلاك الشبكة (Network Traffic).","note":""}]};
+(() => {
+'use strict';
+const Q = DATA.questions, SEC = DATA.sections;
+const byId = new Map(Q.map(q => [q.id, q]));
+const $app = document.getElementById('app');
+const $modal = document.getElementById('modal-root');
+const KEY = 'mcq-quiz-v1';
+const LETTERS = ['A', 'B', 'C', 'D'];
+
+/* ---------- icons ---------- */
+const svg = d => `<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+const I = {
+  check: svg('<path d="M5 12.5l4.5 4.5L19 7.5"/>'),
+  x: svg('<path d="M6 6l12 12M18 6L6 18"/>'),
+  left: svg('<path d="M15 5l-7 7 7 7"/>'),
+  right: svg('<path d="M9 5l7 7-7 7"/>'),
+  grid: svg('<rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/>'),
+  bulb: svg('<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/>'),
+  dash: svg('<path d="M6 12h12"/>'),
+  flag: svg('<path d="M5 21V4M5 4h11l-2 4 2 4H5"/>'),
+  redo: svg('<path d="M20 11a8 8 0 1 0-2.3 5.7M20 5v6h-6"/>'),
+  list: svg('<path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/>'),
+  play: svg('<path d="M7 5l12 7-12 7z"/>')
+};
+
+/* ---------- state ---------- */
+let prefs = { sel: SEC.map((_, i) => i), shuffle: false };
+let run = null;            // { ids, answers, i, finished }
+let view = 'start';        // start | quiz | result | review
+let anim = false;
+let rvFilter = 'all';
+
+function load() {
+  try {
+    const o = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if (!o) return;
+    if (o.prefs) {
+      if (Array.isArray(o.prefs.sel)) prefs.sel = o.prefs.sel.filter(i => Number.isInteger(i) && i >= 0 && i < SEC.length);
+      prefs.shuffle = !!o.prefs.shuffle;
+    }
+    const r = o.run;
+    if (r && Array.isArray(r.ids) && r.ids.length && r.ids.every(id => byId.has(id)) && r.answers && typeof r.answers === 'object') {
+      run = { ids: r.ids, answers: r.answers, i: Math.min(Math.max(+r.i || 0, 0), r.ids.length - 1), finished: !!r.finished };
+    }
+  } catch (e) { /* storage unavailable */ }
+}
+function save() { try { localStorage.setItem(KEY, JSON.stringify({ prefs, run })); } catch (e) { /* ignore */ } }
+
+/* ---------- helpers ---------- */
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const cur = () => byId.get(run.ids[run.i]);
+function tally() {
+  let c = 0, w = 0;
+  for (const id of run.ids) {
+    const a = run.answers[id];
+    if (!a) continue;
+    if (a === byId.get(id).ans) c++; else w++;
+  }
+  return { c, w, s: run.ids.length - c - w, n: run.ids.length };
+}
+function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
+const answered = () => run ? Object.keys(run.answers).filter(id => byId.has(+id) && run.ids.includes(+id)).length : 0;
+
+/* ---------- views ---------- */
+function startHTML() {
+  const counts = SEC.map((_, i) => Q.filter(q => q.s === i).length);
+  const selCount = Q.filter(q => prefs.sel.includes(q.s)).length;
+  const allOn = prefs.sel.length === SEC.length;
+  const chips = SEC.map((s, i) => {
+    const on = prefs.sel.includes(i);
+    return `<button type="button" class="chip-s ${on ? 'on' : ''}" data-action="toggle-sec" data-i="${i}" aria-pressed="${on}"><i style="background:${s.color}"></i><span>${esc(s.short)}</span><em>${counts[i]}</em></button>`;
+  }).join('');
+  let resume = '';
+  if (run) {
+    resume = run.finished
+      ? `<button type="button" class="btn ghost lg" data-action="resume">${I.flag}<span>View last results</span></button>`
+      : `<button type="button" class="btn ghost lg" data-action="resume">${I.redo}<span>Resume · ${answered()}/${run.ids.length}</span></button>`;
+  }
+  return `<main class="wrap start">
+    <header class="hero">
+      <span class="eyebrow">${I.list}Study quiz</span>
+      <h1>Mid Questions <span class="grad">MCQs</span></h1>
+      <p class="sub" dir="rtl">اختبر نفسك على أسئلة الميدتيرم، مع تصحيح فوري وشرح لكل سؤال.</p>
+    </header>
+    <section class="panel">
+      <div class="panel-h"><h2>Choose sections</h2><button type="button" class="link" data-action="toggle-all">${allOn ? 'Clear all' : 'Select all'}</button></div>
+      <div class="chips">${chips}</div>
+      <label class="switch"><input type="checkbox" data-action="shuffle" ${prefs.shuffle ? 'checked' : ''}><span class="sw"></span><span>Shuffle question order</span></label>
+    </section>
+    <div class="cta">
+      <button type="button" class="btn primary lg" data-action="start" ${selCount ? '' : 'disabled'}>${I.play}<span>Start quiz · ${plural(selCount, 'question')}</span></button>
+      ${resume}
+    </div>
+    <p class="foot">Your progress is saved on this device.</p>
+  </main>`;
+}
+
+function whyHTML(q) {
+  return `<div class="why" dir="rtl"><div class="why-l">${I.bulb}<span>السبب</span></div><p>${esc(q.why)}</p></div>${q.note ? `<div class="note" dir="rtl">${esc(q.note)}</div>` : ''}`;
+}
+function feedbackHTML(q, a) {
+  const ok = a === q.ans;
+  return `<section class="fb ${ok ? 'ok' : 'bad'}" aria-live="polite">
+    <div class="fb-h"><span class="fb-ic">${ok ? I.check : I.x}</span><div><b>${ok ? 'Correct' : 'Not quite'}</b><small>${ok ? 'Nice work, that is the right answer.' : 'The right answer is highlighted above.'}</small></div></div>
+    ${ok ? '' : `<div class="fb-ans"><span>Correct answer</span><b>${q.ans} · ${esc(q.opts[q.ans])}</b></div>`}
+    ${whyHTML(q)}
+  </section>`;
+}
+
+function quizHTML() {
+  const q = cur(), n = run.ids.length, a = run.answers[q.id], sec = SEC[q.s], last = run.i === n - 1;
+  const opts = LETTERS.map(k => {
+    const cls = a ? (k === q.ans ? 'is-correct' : (k === a ? 'is-wrong' : 'is-dim')) : '';
+    const ico = a ? (k === q.ans ? I.check : (k === a ? I.x : '')) : '';
+    return `<button type="button" class="opt ${cls}" data-action="pick" data-k="${k}" ${a ? 'aria-disabled="true"' : ''}><span class="chip">${k}</span><span class="txt" dir="auto">${esc(q.opts[k])}</span><span class="ico">${ico}</span></button>`;
+  }).join('');
+  const meta = `${q.sub ? q.sub + ' · ' : ''}Original #${q.orig}`;
+  return `<header class="top"><div class="top-in">
+      <button type="button" class="icon-btn" data-action="exit" aria-label="Back to start">${I.x}</button>
+      <div class="prog"><div class="prog-t"><b>${run.i + 1}</b><span>/ ${n}</span></div><div class="bar"><i style="width:${((run.i + 1) / n * 100).toFixed(1)}%"></i></div></div>
+      <button type="button" class="icon-btn" data-action="grid" aria-label="All questions">${I.grid}</button>
+    </div></header>
+    <main class="wrap quiz"><article class="card ${anim ? 'enter' : ''}">
+      <div class="tags"><span class="tag"><i style="background:${sec.color}"></i>${esc(sec.short)}</span><span class="tag mut">${esc(meta)}</span></div>
+      <h2 class="qtext" dir="auto">${esc(q.text)}</h2>
+      <div class="opts ${a ? 'lock' : ''}" role="group" aria-label="Answer choices">${opts}</div>
+      ${a ? feedbackHTML(q, a) : '<p class="hint">Pick an answer to see the explanation right away.</p>'}
+    </article></main>
+    <nav class="nav" aria-label="Question navigation"><div class="nav-in">
+      <button type="button" class="btn" data-action="prev" ${run.i === 0 ? 'disabled' : ''}>${I.left}<span class="lbl-t">Previous</span></button>
+      <button type="button" class="btn count" data-action="grid" aria-label="Open question list"><b>${run.i + 1} / ${n}</b><small>${answered()} answered</small></button>
+      <button type="button" class="btn ${a || last ? 'primary' : ''}" data-action="next"><span class="lbl-t">${last ? 'Finish' : 'Next'}</span>${last ? I.flag : I.right}</button>
+    </div></nav>`;
+}
+
+function gridHTML() {
+  const t = tally();
+  const cells = run.ids.map((id, i) => {
+    const q = byId.get(id), a = run.answers[id];
+    const st = !a ? '' : (a === q.ans ? 'ok' : 'bad');
+    return `<button type="button" class="cell ${st} ${i === run.i ? 'cur' : ''}" data-action="jump" data-i="${i}" aria-label="Question ${i + 1}${st === 'ok' ? ', correct' : st === 'bad' ? ', wrong' : ''}">${i + 1}</button>`;
+  }).join('');
+  return `<div class="sheet-h"><h3>Jump to question</h3><button type="button" class="icon-btn sm" data-action="modal-close" aria-label="Close">${I.x}</button></div>
+    <div class="legend"><span><i class="d ok"></i>Correct ${t.c}</span><span><i class="d bad"></i>Wrong ${t.w}</span><span><i class="d"></i>Left ${t.s}</span></div>
+    <div class="cells">${cells}</div>
+    <button type="button" class="btn primary block" data-action="finish">${I.flag}<span>Finish &amp; see results</span></button>`;
+}
+
+function resultHTML() {
+  const t = tally(), pct = t.n ? Math.round(t.c / t.n * 100) : 0;
+  const C = 2 * Math.PI * 54, off = C * (1 - pct / 100);
+  const head = pct >= 85 ? 'Excellent work' : pct >= 65 ? 'Good job' : pct >= 40 ? 'Getting there' : 'Time to review';
+  const sub = pct >= 85 ? 'You really know this material.' : pct >= 65 ? 'Solid, a quick review will lock it in.' : 'Check the answers below and try the missed ones again.';
+  const per = SEC.map((s, i) => {
+    const ids = run.ids.filter(id => byId.get(id).s === i);
+    if (!ids.length) return '';
+    const c = ids.filter(id => run.answers[id] === byId.get(id).ans).length;
+    return `<div class="br" style="--c:${s.color}"><span>${esc(s.short)}</span><span>${c} / ${ids.length}</span><div class="bar"><i style="width:${(c / ids.length * 100).toFixed(0)}%"></i></div></div>`;
+  }).join('');
+  const missed = t.w + t.s;
+  return `<main class="wrap res">
+    <div class="ring-w">
+      <svg class="ring" viewBox="0 0 128 128" aria-hidden="true"><defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b9bff"/><stop offset="1" stop-color="#5eead4"/></linearGradient></defs>
+        <circle class="ring-bg" cx="64" cy="64" r="54"/><circle class="ring-fg" cx="64" cy="64" r="54" style="stroke-dasharray:${C.toFixed(2)};stroke-dashoffset:${off.toFixed(2)}"/></svg>
+      <div class="ring-c"><b>${pct}%</b><span>${t.c} of ${t.n}</span></div>
+    </div>
+    <h2>${head}</h2><p>${sub}</p>
+    <div class="trio"><div class="stat ok"><b>${t.c}</b><span>Correct</span></div><div class="stat bad"><b>${t.w}</b><span>Wrong</span></div><div class="stat skip"><b>${t.s}</b><span>Skipped</span></div></div>
+    <section class="panel break"><h3>By section</h3>${per}</section>
+    <div class="cta">
+      <button type="button" class="btn primary lg" data-action="review">${I.list}<span>Review answers</span></button>
+      ${missed ? `<button type="button" class="btn lg" data-action="retry">${I.redo}<span>Retry missed (${missed})</span></button>` : ''}
+      <button type="button" class="btn ghost lg" data-action="home"><span>New quiz</span></button>
+    </div>
+  </main>`;
+}
+
+function reviewHTML() {
+  const t = tally();
+  const items = run.ids.map((id, i) => ({ q: byId.get(id), i, a: run.answers[id] })).filter(({ q, a }) =>
+    rvFilter === 'all' || (rvFilter === 'ok' && a === q.ans) || (rvFilter === 'bad' && a && a !== q.ans) || (rvFilter === 'skip' && !a));
+  const F = [['all', 'All', t.n], ['bad', 'Wrong', t.w], ['ok', 'Correct', t.c], ['skip', 'Skipped', t.s]];
+  const chips = F.map(([k, l, c]) => `<button type="button" class="fchip ${rvFilter === k ? 'on' : ''}" data-action="filter" data-f="${k}">${l}<em>${c}</em></button>`).join('');
+  const cards = items.map(({ q, i, a }) => {
+    const st = !a ? 'skip' : (a === q.ans ? 'ok' : 'bad');
+    const sec = SEC[q.s];
+    const icon = st === 'ok' ? I.check : st === 'bad' ? I.x : I.dash;
+    const mine = !a ? `<div class="ab skip"><span class="lbl">Your answer</span><b>Not answered</b></div>`
+      : `<div class="ab ${st}"><span class="lbl">Your answer</span><b>${a} · ${esc(q.opts[a])}</b></div>`;
+    const right = st === 'ok' ? '' : `<div class="ab ok"><span class="lbl">Correct answer</span><b>${q.ans} · ${esc(q.opts[q.ans])}</b></div>`;
+    return `<article class="rv ${st}"><div class="rv-h"><span class="badge">Question ${i + 1}</span><span class="tag"><i style="background:${sec.color}"></i>${esc(sec.short)}</span><span class="st" aria-label="${st === 'ok' ? 'Correct' : st === 'bad' ? 'Wrong' : 'Skipped'}">${icon}</span></div>
+      <h3 dir="auto">${esc(q.text)}</h3>${mine}${right}${whyHTML(q)}</article>`;
+  }).join('');
+  return `<header class="top"><div class="top-in">
+      <button type="button" class="icon-btn" data-action="results" aria-label="Back to results">${I.left}</button>
+      <div class="top-title">Review answers</div>
+    </div><div class="filters">${chips}</div></header>
+    <main class="wrap">${cards || '<div class="empty">Nothing in this filter.</div>'}
+      <div class="cta"><button type="button" class="btn primary lg" data-action="results">${I.flag}<span>Back to results</span></button></div></main>`;
+}
+
+function render() {
+  if (!run && view !== 'start') view = 'start';
+  document.body.dataset.view = view;
+  $app.innerHTML = view === 'quiz' ? quizHTML() : view === 'result' ? resultHTML() : view === 'review' ? reviewHTML() : startHTML();
+  anim = false;
+}
+
+/* ---------- modal ---------- */
+function openModal(html) {
+  $modal.innerHTML = `<div class="modal-back" data-action="modal-close"></div><div class="sheet" role="dialog" aria-modal="true">${html}</div>`;
+  document.body.classList.add('modal-open');
+  const f = $modal.querySelector('[data-autofocus]'); if (f) f.focus();
+}
+function closeModal() { $modal.innerHTML = ''; document.body.classList.remove('modal-open'); }
+const modalOpen = () => document.body.classList.contains('modal-open');
+
+/* ---------- actions ---------- */
+const top = () => window.scrollTo({ top: 0, behavior: 'auto' });
+function startRun(ids) { run = { ids, answers: {}, i: 0, finished: false }; save(); view = 'quiz'; anim = true; render(); top(); }
+function go(i) { run.i = Math.min(Math.max(i, 0), run.ids.length - 1); save(); anim = true; render(); top(); }
+function pick(k) {
+  if (view !== 'quiz' || !run) return;
+  const q = cur();
+  if (run.answers[q.id] || !LETTERS.includes(k)) return;
+  run.answers[q.id] = k; save(); render();
+  requestAnimationFrame(() => { const fb = document.querySelector('.fb'); if (fb) fb.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); });
+}
+function finish() { closeModal(); run.finished = true; save(); view = 'result'; render(); top(); }
+function askFinish() {
+  closeModal();
+  const t = tally();
+  if (t.s > 0) {
+    openModal(`<div class="sheet-h"><h3>Finish the quiz?</h3></div><p class="muted" style="margin:0">You still have ${plural(t.s, 'unanswered question')}. They will count as skipped.</p>
+      <div class="row"><button type="button" class="btn" data-action="modal-close">Keep going</button><button type="button" class="btn primary" data-action="confirm-finish" data-autofocus>Finish anyway</button></div>`);
+  } else finish();
+}
+
+function act(name, el) {
+  switch (name) {
+    case 'toggle-sec': { const i = +el.dataset.i; prefs.sel = prefs.sel.includes(i) ? prefs.sel.filter(x => x !== i) : [...prefs.sel, i].sort((a, b) => a - b); save(); render(); break; }
+    case 'toggle-all': prefs.sel = prefs.sel.length === SEC.length ? [] : SEC.map((_, i) => i); save(); render(); break;
+    case 'start': { const ids = Q.filter(q => prefs.sel.includes(q.s)).map(q => q.id); if (!ids.length) return; startRun(prefs.shuffle ? shuffle(ids) : ids); break; }
+    case 'resume': view = run.finished ? 'result' : 'quiz'; anim = true; render(); top(); break;
+    case 'exit': case 'home': view = 'start'; render(); top(); break;
+    case 'pick': pick(el.dataset.k); break;
+    case 'prev': go(run.i - 1); break;
+    case 'next': if (run.i < run.ids.length - 1) go(run.i + 1); else askFinish(); break;
+    case 'grid': openModal(gridHTML()); break;
+    case 'jump': closeModal(); go(+el.dataset.i); break;
+    case 'finish': askFinish(); break;
+    case 'confirm-finish': finish(); break;
+    case 'review': rvFilter = 'all'; view = 'review'; render(); top(); break;
+    case 'results': view = 'result'; render(); top(); break;
+    case 'filter': rvFilter = el.dataset.f; render(); break;
+    case 'retry': { const ids = run.ids.filter(id => run.answers[id] !== byId.get(id).ans); if (ids.length) startRun(prefs.shuffle ? shuffle(ids) : ids); break; }
+    case 'modal-close': closeModal(); break;
+    default: break;
+  }
+}
+
+document.addEventListener('click', e => {
+  const el = e.target.closest('[data-action]');
+  if (!el || el.disabled) return;
+  if (el.dataset.action === 'shuffle') return;       // handled on change
+  act(el.dataset.action, el);
+});
+document.addEventListener('change', e => {
+  const el = e.target.closest('[data-action="shuffle"]');
+  if (el) { prefs.shuffle = el.checked; save(); }
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && modalOpen()) { closeModal(); return; }
+  if (view !== 'quiz' || !run || modalOpen() || e.ctrlKey || e.metaKey || e.altKey) return;
+  const k = e.key;
+  if (k === 'ArrowRight') act('next');
+  else if (k === 'ArrowLeft') { if (run.i > 0) act('prev'); }
+  else if (/^[1-4]$/.test(k)) pick(LETTERS[+k - 1]);
+  else if (/^[a-dA-D]$/.test(k)) pick(k.toUpperCase());
+  else if (k === 'Enter' && run.answers[cur().id]) act('next');
+});
+
+load();
+render();
+})();
+</script>
+</body>
+</html>
